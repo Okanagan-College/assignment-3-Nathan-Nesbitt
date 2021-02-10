@@ -13,15 +13,13 @@ class Calculator {
     }
   
     enter(number) {
-      
-    }
-  
-    storeNumber(number) {
+        // Checks to see if someone pressed enter before typing a full equation
+        if(!this.firstNumber || !this.operation)
+            return false;
 
-    }
-  
-    storeOperator(operator) {
-
+        this.calculateValue(number);
+        this.firstNumber = null;
+        this.operation = null;
     }
   
     numberHandle(number) {
@@ -38,9 +36,14 @@ class Calculator {
     }
   
     calculateValue(number) {
-  
+        
+        if(this.operation === "+") {
+            this.display.value = String(parseFloat(this.firstNumber) + parseFloat(number))
+        }
+
     }
   
+    // You all can do this yourselves //
     decimalHandle() {
 
     }
@@ -52,7 +55,9 @@ class Calculator {
             
             // If the button clicked is of class "enter" run this code
             if(target.classList.contains("enter")) {
-                console.log("ENTER WAS PRESSED!")
+                // Gets the second number in the equation by splitting on the operation (multiplication)
+                var secondNumber = String(this.display.value).split(this.operation)[1]
+                this.enter(secondNumber);
             }
 
             // Else if you clicked a button with class "number"
