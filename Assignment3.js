@@ -41,6 +41,8 @@ class Calculator {
             this.display.value = String(parseFloat(this.firstNumber) + parseFloat(number))
         }
 
+        // Implement the rest of the operations (-, /, *)
+
     }
   
     // You all can do this yourselves //
