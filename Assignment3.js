@@ -1,7 +1,14 @@
 class Calculator {
+
+    // This gets the display for the document //
+    display = document.getElementsByClassName("screen")[0];
+
+    firstNumber = null;
+
+    operation = null;
   
     clear() {
-      
+        
     }
   
     enter(number) {
@@ -17,7 +24,11 @@ class Calculator {
     }
   
     numberHandle(number) {
-      
+        // Checks to see if the display already has a 0 or NaN and erases it //
+        if(this.display.value === "0" || this.display.value === "NaN")
+            this.display.value = "";
+        // Adds the inputted number to the display as a string //
+        this.display.value += String(number)
     }
   
     operatorHandle(operator) {
@@ -44,7 +55,8 @@ class Calculator {
 
             // Else if you clicked a button with class "number"
             else if(target.classList.contains("number")) {
-                console.log("NUMBER WAS PRESSED!")
+                // Send the value of the button pressed to the function numberHandle //
+                this.numberHandle(target.value);
             }
 
             // Else if you clicked a button with class "operator"
@@ -58,7 +70,8 @@ class Calculator {
             }
             // Else if you clicked a button with class "clear"
             else if(target.classList.contains("clear")) {
-                console.log("CLEAR WAS PRESSED!")
+                // Run the clear function //
+                this.clear()
             }
         })
     }
