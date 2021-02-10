@@ -8,7 +8,8 @@ class Calculator {
     operation = null;
   
     clear() {
-        
+        // Clears the display //
+        this.display.value = "0";
     }
   
     enter(number) {
@@ -32,7 +33,8 @@ class Calculator {
     }
   
     operatorHandle(operator) {
-      
+        this.operation = operator;
+        this.display.value += String(operator);
     }
   
     calculateValue(number) {
@@ -61,7 +63,8 @@ class Calculator {
 
             // Else if you clicked a button with class "operator"
             else if(target.classList.contains("operator")) {
-                console.log("OPERATOR WAS PRESSED!")
+                this.firstNumber = this.display.value;
+                this.operatorHandle(target.value);
             }
             
             // Else if you clicked a button with class "decimal"
