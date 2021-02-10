@@ -1,0 +1,13 @@
+#button_area {
+    display: flex;
+    flex-direction: row;
+}
+
+#button_area>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.enter {
+    flex-grow: 2;
+}
